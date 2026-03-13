@@ -1,0 +1,124 @@
+WEEK 2 
+PROGRAM 1 
+#include <iostream>
+using namespace std;
+void swap_by_reference(int &a, int &b) {
+ int temp;
+ temp = a; 
+ a = b; 
+ b = temp; 
+}
+int main() {
+ int x = 10, y = 20;
+ cout << "Before swap: x = " << x << ", y = " << y << endl;
+ swap_by_reference(x, y);
+ cout << "After swap: x = " << x << ", y = " << y << endl;
+ return 0;
+}
+
+PROGRAM 2 
+#include <iostream>
+using namespace std;
+void swap_by_value(int a, int b) { int temp;
+ temp = a; 
+ a = b; 
+ b = temp; 
+ cout << "Inside function: a = " << a << ", b = " << b << endl;
+}
+int main() {
+ int x = 10, y = 20;
+ cout << "Before function call: x = " << x << ", y = " << y << endl;
+ swap_by_value(x, y);
+ cout << "After function call: x = " << x << ", y = " << y << endl;
+ return 0;
+}
+
+PROGRAM 3 
+#include <iostream>
+using namespace std;
+int main() {
+ int n;
+cout << "Enter the number of elements (n): ";
+cin >> n;
+ int* arr = new int[n];cout << "Enter " << n << " integers:" << endl;
+ for (int i = 0; i < n; ++i) {
+ cout << "Element " << i + 1 << ": ";
+ cin >> arr[i];
+ }
+ cout << "\nYou entered the following elements:" << endl;
+ for (int i = 0; i < n; ++i) {
+ cout << "Element " << i + 1 << ": " << arr[i] << endl;
+ }
+ 
+ return 0;
+}
+
+PROGRAM 4 
+#include <iostream>
+using namespace std;
+int main() {
+ int data[5]; 
+ int* ptr; 
+ ptr = data; 
+ cout << "Enter 5 elements:" << endl;
+ for (int i = 0; i < 5; ++i) {cin >> *(ptr + i); 
+ }
+ cout << "You entered:" << endl;
+ for (int i = 0; i < 5; ++i) {
+ cout << *(data + i) << endl;
+ }
+ return 0;
+}
+
+PROGRAM 5 
+#include <iostream>
+using namespace std;
+int main()
+{
+ int n, i;
+ int *p;
+ cout << "Enter n value: ";
+ cin >> n;
+ p = new int[n];
+ cout << "Enter array elements: ";
+ for(i = 0; i < n; i++)
+ {cin >> *(p + i);
+ }
+ cout << "Array elements are: ";
+ for(i = 0; i < n; i++)
+ {
+ cout << *(p + i) << " ";
+ }
+ delete[] p;
+ return 0;
+}
+
+PROGRAM 6 
+#include <iostream>
+#include <string>
+using namespace std;
+void display(int a) {
+ cout << "Displaying one integer: " << a << endl;
+}
+void display(int a, int b) {
+ cout << "Displaying two integers: " << a << ", " << b << endl;
+}
+void display(double a) {cout << "Displaying one double: " << a << endl;
+}
+void display(string a) {
+ cout << "Displaying one string: " << a << endl;
+}
+void display_order(int a, string b) {
+ cout << "Order (int, string): " << a << ", " << b << endl;
+}
+void display_order(string a, int b) {
+ cout << "Order (string, int): " << a << ", " << b <<endl;
+}
+int main() {
+ display(10); 
+ display(10, 20); 
+ display(12.34); 
+ display("Hello"); 
+ display_order(5, "world"); 
+ display_order("world", 5); 
+ return 0;
